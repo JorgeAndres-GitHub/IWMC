@@ -1,0 +1,14 @@
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\bin\Debug\net8.0\AccesoDatos.deps.json
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\bin\Debug\net8.0\AccesoDatos.runtimeconfig.json
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\bin\Debug\net8.0\AccesoDatos.dll
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\bin\Debug\net8.0\AccesoDatos.pdb
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\AccesoDatos.csproj.AssemblyReference.cache
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\AccesoDatos.AssemblyInfoInputs.cache
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\AccesoDatos.AssemblyInfo.cs
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\AccesoDatos.dll
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\refint\AccesoDatos.dll
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\AccesoDatos.pdb
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\AccesoDatos.genruntimeconfig.cache
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\ref\AccesoDatos.dll
