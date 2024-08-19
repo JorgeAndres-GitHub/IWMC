@@ -12,3 +12,4 @@ C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\refint\
 C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\AccesoDatos.pdb
 C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\AccesoDatos.genruntimeconfig.cache
 C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\ref\AccesoDatos.dll
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\AccesoDatos\obj\Debug\net8.0\AccesoDatos.sourcelink.json

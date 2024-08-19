@@ -4,6 +4,10 @@ using AccesoDatos.Context;
 using AccesoDatos.DTOs;
 using AccesoDatos.Models;
 using AccesoDatos.Respuesta;
+using AccesoDatos.Services;
+using Azure.Core;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -39,6 +43,8 @@ namespace AccesoDatos.Operaciones
                     Mensaje = "El email/cedula ingresado ya existe"
                 };
 
+                var contraseniaEncriptada = HashPassword.HashPasswordBD(usuario.Contrasenia);
+
                 var usuarioR = new Usuario
                 {
                     Nombre = usuario.Nombre,
@@ -47,13 +53,13 @@ namespace AccesoDatos.Operaciones
                     Direccion = usuario.Direccion,
                     Telefono = usuario.Telefono,
                     Email = usuario.Email,
-                    Contrasenia = usuario.Contrasenia
+                    Contrasenia = contraseniaEncriptada,
+                    ConfirmedEmail = false
                 };
 
                 await _context.Usuarios.AddAsync(usuarioR);
                 await _context.SaveChangesAsync();
-
-                //await SendVerificationEmailAsync();
+                                
                 return new AuthResult
                 {
                     Respuesta = true,
@@ -73,18 +79,19 @@ namespace AccesoDatos.Operaciones
 
         public async Task<AuthResult> Login(LoginRequestDTO loginRequestDTO)
         {
-            var existingUser = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email.Equals(loginRequestDTO.Email) && u.Contrasenia.Equals(loginRequestDTO.Contrasenia));
+            var contraseñaEncriptada = HashPassword.HashPasswordBD(loginRequestDTO.Contrasenia);
+            var existingUser = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email.Equals(loginRequestDTO.Email) && u.Contrasenia.Equals(contraseñaEncriptada));
             if (existingUser == null) return new AuthResult
             {
                 Respuesta = false,
                 Mensaje = "Email y/o contraseña invalidos"
             };
 
-            /*if ((bool)!existingUser.ConfirmedEmail) return new AuthResult
+            if ((bool)!existingUser.ConfirmedEmail) return new AuthResult
             {
                 Mensaje = "El email debe estar confirmado",
                 Respuesta = false
-            };*/
+            };
 
             var token = GenerateTokenAsync(existingUser).Result;
             return new AuthResult
@@ -119,6 +126,6 @@ namespace AccesoDatos.Operaciones
             var token = jwtTokenHandler.CreateToken(tokenDescriptor);
             return jwtTokenHandler.WriteToken(token);
             
-        }
+        }        
     }
 }
