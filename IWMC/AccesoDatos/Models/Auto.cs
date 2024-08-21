@@ -15,5 +15,5 @@ public partial class Auto
 
     public string Tipo { get; set; } = null!;
 
-    public virtual ICollection<AutosDeUsuario> AutosDeUsuarios { get; set; } = new List<AutosDeUsuario>();
+    public virtual ICollection<AutosDeUsuario>? AutosDeUsuarios { get; set; } = new List<AutosDeUsuario>();
 }

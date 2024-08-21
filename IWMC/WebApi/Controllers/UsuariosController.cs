@@ -1,14 +1,22 @@
-﻿using AccesoDatos.Context;
+﻿using AccesoDatos.Configuration;
+using AccesoDatos.Context;
 using AccesoDatos.DTOs;
 using AccesoDatos.Models;
 using AccesoDatos.Operaciones;
 using AccesoDatos.Respuesta;
+using AccesoDatos.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.Identity.Client;
+using Microsoft.IdentityModel.Tokens;
+using MimeKit.Cryptography;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 
@@ -19,15 +27,17 @@ namespace WebApi.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        private readonly AppCarrosContext _context;
-        private readonly UsuarioDAO _usuarioDAO;
+        private AppCarrosContext _context;
         private readonly IEmailSender _emailSender;
+        private readonly TokenValidationParameters _tokenValidationParameters;
+        private readonly UsuarioDAO _usuarioDAO;
 
-        public UsuariosController(AppCarrosContext context, UsuarioDAO usuarioDAO, IEmailSender emailSender)
+        public UsuariosController(AppCarrosContext context, IEmailSender emailSender, TokenValidationParameters tokenValidationParameters, UsuarioDAO usuarioDAO)
         {
             _context = context;
-            _usuarioDAO = usuarioDAO;
             _emailSender = emailSender;
+            _tokenValidationParameters = tokenValidationParameters;
+            _usuarioDAO = usuarioDAO;
         }
 
 
@@ -43,11 +53,30 @@ namespace WebApi.Controllers
 
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO usuario)
-        {
+        {            
             var respuesta = await _usuarioDAO.Login(usuario);
             if(respuesta.Mensaje.Equals("Email y/o contraseña invalidos") || respuesta.Mensaje.Equals("El email debe estar confirmado")) return BadRequest(respuesta.Mensaje);
 
             return Ok(respuesta);
+        }
+
+        [HttpPost("RefreshToken")]
+        public async Task<IActionResult> RefreshToken([FromBody] TokenRequestDTO tokenRequest)
+        {
+            if (!ModelState.IsValid) return BadRequest(new AuthResult
+            {
+                Mensaje = "Invalid parameters",
+                Respuesta = false
+            });
+
+            var results = await VerifyAndGenerateAsync(tokenRequest);
+
+            if (results == null) return BadRequest(new AuthResult
+            {
+                Mensaje = "Invalid token"
+            });
+
+            return Ok(results);
         }
 
         [HttpGet("ConfirmEmail")]
@@ -95,5 +124,57 @@ namespace WebApi.Controllers
 
             await _emailSender.SendEmailAsync(usuario.Email, "Confirm your email", emailBody);
         }
+
+        private async Task<AuthResult> VerifyAndGenerateAsync(TokenRequestDTO tokenRequest)
+        {
+            var jwtTokenHandler = new JwtSecurityTokenHandler();
+
+            try
+            {
+                _tokenValidationParameters.ValidateLifetime = false; //talvez cambie en produccion
+                var tokenBeingVerified = jwtTokenHandler.ValidateToken(tokenRequest.Token, _tokenValidationParameters, out var validatedToken);
+
+                if(validatedToken is JwtSecurityToken jwtSecurityToken)
+                {
+                    var result = jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase);
+
+                    if (!result || tokenBeingVerified == null) throw new Exception("Invalid token"); 
+                }
+
+                var utcExpiryDate = long.Parse(tokenBeingVerified.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Exp).Value);
+                var expiryDate = DateTimeOffset.FromUnixTimeSeconds(utcExpiryDate).UtcDateTime;
+
+                if (expiryDate < DateTime.UtcNow) throw new Exception("Expired token");
+
+                var storedToken = await _context.RefreshTokens.FirstOrDefaultAsync(t => t.Token == tokenRequest.RefreshToken);
+
+                if (storedToken == null) throw new Exception("Invalid token");
+
+                if (storedToken.IsRevoked || storedToken.IsUsed) throw new Exception("Invalid token");
+
+                var jti = tokenBeingVerified.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Jti).Value;
+                if (jti != storedToken.JwtId) throw new Exception("Invalid token");
+
+                if (storedToken.ExpiryDate < DateTime.UtcNow) throw new Exception("Expired token");
+
+                storedToken.IsUsed = true;
+                _context.RefreshTokens.Update(storedToken);
+                await _context.SaveChangesAsync();
+
+                var dbUser = await _context.Usuarios.FirstOrDefaultAsync(u => u.Id == storedToken.UsuarioId);
+
+                return await _usuarioDAO.GenerateTokenAsync(dbUser);
+            }
+            catch (Exception e)
+            {
+                var message = e.Message == "Invalid token" || e.Message == "Expired token" ? e.Message : "Internal Server Error";
+                return new AuthResult
+                {
+                    Respuesta = false,
+                    Mensaje = message
+                };
+            }
+        }
+
     }
 }

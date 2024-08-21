@@ -93,17 +93,12 @@ namespace AccesoDatos.Operaciones
                 Respuesta = false
             };
 
-            var token = GenerateTokenAsync(existingUser).Result;
-            return new AuthResult
-            {
-                Respuesta = true,
-                Token = token,
-                Mensaje = "Inicio de sesion exitoso"
-            };
+            var tokens = await GenerateTokenAsync(existingUser);
+            return tokens;
 
         }
 
-        private async Task<string> GenerateTokenAsync(Usuario usuario)
+        public async Task<AuthResult> GenerateTokenAsync(Usuario usuario)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
 
@@ -117,14 +112,37 @@ namespace AccesoDatos.Operaciones
                     new Claim(JwtRegisteredClaimNames.Sub, usuario.Nombre+usuario.Apellidos),
                     new Claim(JwtRegisteredClaimNames.Email, usuario.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToUniversalTime().ToString())
+                    new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToUniversalTime().ToString()),
+                    new Claim("Rol", usuario.Rol)
                 })),
                 Expires = DateTime.UtcNow.Add(_jwtConfig.ExpiryTime),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
             };
 
             var token = jwtTokenHandler.CreateToken(tokenDescriptor);
-            return jwtTokenHandler.WriteToken(token);
+            var jwtToken = jwtTokenHandler.WriteToken(token);
+
+            var refreshToken = new RefreshToken
+            {
+                JwtId = token.Id,
+                Token = RandomGenerator.GenerateRandomString(23),
+                AddedDate = DateTime.UtcNow,
+                ExpiryDate = DateTime.UtcNow.AddMonths(6),
+                IsRevoked = false,
+                IsUsed = false,
+                UsuarioId = usuario.Id
+            };
+
+            await _context.RefreshTokens.AddAsync(refreshToken);
+            await _context.SaveChangesAsync();
+
+            return new AuthResult
+            {
+                Token = jwtToken,
+                RefresToken = refreshToken.Token,
+                Respuesta = true,
+                Mensaje = "Tokens generados correctamente"
+            };
             
         }        
     }

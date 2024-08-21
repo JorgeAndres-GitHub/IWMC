@@ -62,6 +62,7 @@ builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpS
 builder.Services.AddSingleton<IEmailSender, EmailService>();
 
 builder.Services.AddScoped<UsuarioDAO>();
+builder.Services.AddScoped<AutoDAO>();
 
 var key = Encoding.ASCII.GetBytes(builder.Configuration.GetSection("JwtConfig:Secret").Value);
 
@@ -86,6 +87,11 @@ builder.Services.AddAuthentication(options =>
 {
     jwt.SaveToken = true;
     jwt.TokenValidationParameters = tokenValidationParameters;
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("SuperRol", policy => policy.RequireClaim("Rol", "Admin"));
 });
 
 var app = builder.Build();
