@@ -21,5 +21,7 @@ namespace AccesoDatos.DTOs
         public string Email { get; set; } = null!;
 
         public string Contrasenia { get; set; } = null!;
+        public string? Rol { get; set; }
+        public string? CodigoInvitacion { get; set; }
     }
 }

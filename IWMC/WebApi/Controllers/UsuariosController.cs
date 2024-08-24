@@ -31,20 +31,30 @@ namespace WebApi.Controllers
         private readonly IEmailSender _emailSender;
         private readonly TokenValidationParameters _tokenValidationParameters;
         private readonly UsuarioDAO _usuarioDAO;
+        private readonly IConfiguration _configuration;
 
-        public UsuariosController(AppCarrosContext context, IEmailSender emailSender, TokenValidationParameters tokenValidationParameters, UsuarioDAO usuarioDAO)
+        public UsuariosController(AppCarrosContext context, IEmailSender emailSender, TokenValidationParameters tokenValidationParameters, UsuarioDAO usuarioDAO, IConfiguration configuration)
         {
             _context = context;
             _emailSender = emailSender;
             _tokenValidationParameters = tokenValidationParameters;
             _usuarioDAO = usuarioDAO;
+            _configuration = configuration;
         }
 
 
         [HttpPost("Register")]
         public async Task<IActionResult> RegistrarUsuario([FromBody] RegisterRequestDTO usuario)
         {
-            var respuesta = await _usuarioDAO.RegistrarUsuario(usuario);
+            bool esAdmin = false;
+            if(!usuario.Rol.IsNullOrEmpty() && usuario.Rol.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                if (UsuarioPuedeSerAdmin(usuario))
+                {
+                    esAdmin = true;
+                }
+            }
+            var respuesta = await _usuarioDAO.RegistrarUsuario(usuario, esAdmin);
             if (respuesta.Mensaje.Equals("El email/cedula ingresado ya existe") && respuesta.Mensaje != "Usuario Ingresado Correctamente") return BadRequest(respuesta.Mensaje);
             var usuarioRegistrado = await _context.Usuarios.Where(u => u.Email.Equals(usuario.Email)).FirstOrDefaultAsync();
             await SendVerificationEmailAsync(usuarioRegistrado);
@@ -174,6 +184,12 @@ namespace WebApi.Controllers
                     Mensaje = message
                 };
             }
+        }
+
+        private bool UsuarioPuedeSerAdmin(RegisterRequestDTO usuario)
+        {
+            var key = _configuration["CodigoAdmin:Key"];
+            return usuario.CodigoInvitacion == key;
         }
 
     }

@@ -32,7 +32,7 @@ namespace AccesoDatos.Operaciones
             _jwtConfig = jwtConfig.Value;
         }
 
-        public async Task<AuthResult> RegistrarUsuario(RegisterRequestDTO usuario)
+        public async Task<AuthResult> RegistrarUsuario(RegisterRequestDTO usuario, bool esAdmin)
         {
             try
             {
@@ -54,7 +54,8 @@ namespace AccesoDatos.Operaciones
                     Telefono = usuario.Telefono,
                     Email = usuario.Email,
                     Contrasenia = contraseniaEncriptada,
-                    ConfirmedEmail = false
+                    ConfirmedEmail = false,
+                    Rol = esAdmin ? "Admin" : "Usuario"
                 };
 
                 await _context.Usuarios.AddAsync(usuarioR);
