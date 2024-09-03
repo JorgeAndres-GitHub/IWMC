@@ -27,9 +27,11 @@ public partial class Usuario
 
     public string? Rol { get; set; }
 
-    public virtual ICollection<AutosDeUsuario>? AutosDeUsuarios { get; set; } = new List<AutosDeUsuario>();
+    public string? ConfirmUpdateCode { get; set; }
 
-    public virtual ICollection<CuentasBancaria>? CuentasBancaria { get; set; } = new List<CuentasBancaria>();
+    public virtual ICollection<AutosDeUsuario> AutosDeUsuarios { get; set; } = new List<AutosDeUsuario>();
 
-    public virtual ICollection<RefreshToken>? RefreshTokens { get; set; } = new List<RefreshToken>();
+    public virtual ICollection<CuentasBancaria> CuentasBancaria { get; set; } = new List<CuentasBancaria>();
+
+    public virtual ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
 }

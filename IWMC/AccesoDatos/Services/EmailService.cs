@@ -41,7 +41,7 @@ namespace AccesoDatos.Services
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine($"Ha ocurrido un error al intentar enviar el email: {ex.Message}");
             }
         }
     }

@@ -148,3 +148,5 @@ C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\Microsoft.Ex
 C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\MimeKit.dll
 C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\Twilio.dll

@@ -63,6 +63,8 @@ builder.Services.AddSingleton<IEmailSender, EmailService>();
 
 builder.Services.AddScoped<UsuarioDAO>();
 builder.Services.AddScoped<AutoDAO>();
+builder.Services.AddScoped<CuentasBancariasDAO>();
+builder.Services.AddScoped<AutoCompradoDAO>();
 
 var key = Encoding.ASCII.GetBytes(builder.Configuration.GetSection("JwtConfig:Secret").Value);
 

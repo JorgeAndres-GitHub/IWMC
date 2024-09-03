@@ -6,6 +6,7 @@ using AccesoDatos.Models;
 using AccesoDatos.Respuesta;
 using AccesoDatos.Services;
 using Azure.Core;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
@@ -97,6 +98,25 @@ namespace AccesoDatos.Operaciones
             var tokens = await GenerateTokenAsync(existingUser);
             return tokens;
 
+        }       
+
+        public async Task<RegisterRequestDTO> ObtenerPerfilDeUsuario(int id)
+        {
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(us => us.Id == id);
+            if (usuario == null) return null;
+
+            var usuarioFiltrado = new RegisterRequestDTO
+            {
+                Nombre = usuario.Nombre,
+                Apellidos = usuario.Apellidos,
+                Cedula = usuario.Cedula,
+                Telefono = usuario.Telefono,
+                Direccion = usuario.Direccion,
+                Email = usuario.Email,
+                Contrasenia = usuario.Contrasenia
+            };
+
+            return usuarioFiltrado;
         }
 
         public async Task<AuthResult> GenerateTokenAsync(Usuario usuario)
@@ -123,7 +143,7 @@ namespace AccesoDatos.Operaciones
             var token = jwtTokenHandler.CreateToken(tokenDescriptor);
             var jwtToken = jwtTokenHandler.WriteToken(token);
 
-            var refreshToken = new RefreshToken
+            var refreshToken = new RefreshToken 
             {
                 JwtId = token.Id,
                 Token = RandomGenerator.GenerateRandomString(23),

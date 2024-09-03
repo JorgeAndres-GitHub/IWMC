@@ -141,6 +141,10 @@ public partial class AppCarrosContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("cedula");
+            entity.Property(e => e.ConfirmUpdateCode)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("confirmUpdateCode");
             entity.Property(e => e.ConfirmedEmail)
                 .HasDefaultValue(false)
                 .HasColumnName("confirmedEmail");

@@ -42,6 +42,60 @@ namespace WebApi.Controllers
             _configuration = configuration;
         }
 
+        [HttpPost("EnviarEmailActualizacion")]
+        public async Task<IActionResult> EnviarEmailActualizacion([FromBody] string correo)
+        {
+            try
+            {
+                var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email.Equals(correo));
+
+                if (usuario == null) return BadRequest(new AuthResult
+                {
+                    Respuesta = false,
+                    Mensaje = "Correo inexistente"
+                });
+
+                if ((bool)!usuario.ConfirmedEmail) return BadRequest(new AuthResult
+                {
+                    Respuesta = false,
+                    Mensaje = "El email debe estar confirmado"
+                });
+
+                await SendConfirmUpdateEmailAsync(usuario);
+
+                return NoContent();
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }        
+
+        [HttpPatch("ActualizarContraseña")]
+        public async Task<IActionResult> CambiarContrasenia([FromBody] PasswordUpdateRequestDTO request)
+        {
+            try
+            {
+                var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email.Equals(request.Correo));
+
+                if (request.CodigoConfirmacion != usuario.ConfirmUpdateCode) return BadRequest("Codigo de confirmacion no valido");
+
+                usuario.Contrasenia = HashPassword.HashPasswordBD(request.Password);
+                usuario.ConfirmUpdateCode = null;
+                await _context.SaveChangesAsync();                
+
+                return NoContent();
+            }
+            catch (Exception)
+            {
+                return BadRequest(new AuthResult
+                {
+                    Respuesta = false,
+                    Mensaje = "Error al intentar actualizar la contraseña"
+                });
+            }
+        }
+
 
         [HttpPost("Register")]
         public async Task<IActionResult> RegistrarUsuario([FromBody] RegisterRequestDTO usuario)
@@ -115,9 +169,26 @@ namespace WebApi.Controllers
             catch (Exception)
             {
                 return BadRequest("There has been an error confirming your email");
-            }
-            
+            }           
+        }
 
+        [Authorize]
+        [HttpGet("Perfil")]
+        public async Task<IActionResult> MostrarPerfil()
+        {
+            try
+            {
+                var userClaims = User.Claims;
+
+                var userId = userClaims.FirstOrDefault(c => c.Type == "Id")?.Value;
+                var respuesta = await _usuarioDAO.ObtenerPerfilDeUsuario(int.Parse(userId));
+                if (respuesta == null) return NotFound("Usuario no encontrado");
+                return Ok(respuesta);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Error al intentar buscar datos de usuario");
+            }
         }
 
         private async Task SendVerificationEmailAsync(Usuario usuario)
@@ -135,12 +206,25 @@ namespace WebApi.Controllers
             await _emailSender.SendEmailAsync(usuario.Email, "Confirm your email", emailBody);
         }
 
+        private async Task SendConfirmUpdateEmailAsync(Usuario usuario)
+        {
+            var codigoDeConfirmacion = RandomGenerator.GenerateRandomString(5);
+
+            usuario.ConfirmUpdateCode = codigoDeConfirmacion;
+            await _context.SaveChangesAsync();
+
+            var emailBody = $"Este es tu codigo de confirmacion {codigoDeConfirmacion}";
+
+            await _emailSender.SendEmailAsync(usuario.Email, "Actualizacion de datos", emailBody);
+        }
+
         private async Task<AuthResult> VerifyAndGenerateAsync(TokenRequestDTO tokenRequest)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
 
             try
             {
+                //ACCESS TOKEN
                 _tokenValidationParameters.ValidateLifetime = false; //talvez cambie en produccion
                 var tokenBeingVerified = jwtTokenHandler.ValidateToken(tokenRequest.Token, _tokenValidationParameters, out var validatedToken);
 
@@ -156,6 +240,7 @@ namespace WebApi.Controllers
 
                 if (expiryDate < DateTime.UtcNow) throw new Exception("Expired token");
 
+                //REFRESH TOKEN
                 var storedToken = await _context.RefreshTokens.FirstOrDefaultAsync(t => t.Token == tokenRequest.RefreshToken);
 
                 if (storedToken == null) throw new Exception("Invalid token");
