@@ -150,3 +150,7 @@ C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\MimeKit.dll
 C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
 C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\Twilio.dll
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\nlog.config
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\NLog.dll
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\NLog.Extensions.Logging.dll
+C:\Users\THERMALTAKE\Desktop\AppCarros\IWMC\WebApi\bin\Debug\net8.0\NLog.Web.AspNetCore.dll

@@ -21,8 +21,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 
 namespace WebApi.Controllers
-{
-    [AllowAnonymous]
+{    
     [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
@@ -32,14 +31,21 @@ namespace WebApi.Controllers
         private readonly TokenValidationParameters _tokenValidationParameters;
         private readonly UsuarioDAO _usuarioDAO;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<UsuariosController> _logger;
 
-        public UsuariosController(AppCarrosContext context, IEmailSender emailSender, TokenValidationParameters tokenValidationParameters, UsuarioDAO usuarioDAO, IConfiguration configuration)
+        public UsuariosController(AppCarrosContext context, 
+                                    IEmailSender emailSender, 
+                                    TokenValidationParameters tokenValidationParameters, 
+                                    UsuarioDAO usuarioDAO, 
+                                    IConfiguration configuration, 
+                                    ILogger<UsuariosController> logger)
         {
             _context = context;
             _emailSender = emailSender;
             _tokenValidationParameters = tokenValidationParameters;
             _usuarioDAO = usuarioDAO;
             _configuration = configuration;
+            _logger = logger;
         }
 
         [HttpPost("EnviarEmailActualizacion")]
@@ -65,8 +71,9 @@ namespace WebApi.Controllers
 
                 return NoContent();
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                _logger.LogError(e, "Error al intentar enviar el email de actualizacion de datos");
                 return BadRequest();
             }
         }        
@@ -86,8 +93,9 @@ namespace WebApi.Controllers
 
                 return NoContent();
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                _logger.LogError(e, "Error al intentar actualizar la contraseña");
                 return BadRequest(new AuthResult
                 {
                     Respuesta = false,
@@ -100,6 +108,7 @@ namespace WebApi.Controllers
         [HttpPost("Register")]
         public async Task<IActionResult> RegistrarUsuario([FromBody] RegisterRequestDTO usuario)
         {
+            _logger.LogWarning("A user is trying to register");
             bool esAdmin = false;
             if(!usuario.Rol.IsNullOrEmpty() && usuario.Rol.Equals("Admin", StringComparison.OrdinalIgnoreCase))
             {
@@ -118,6 +127,7 @@ namespace WebApi.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO usuario)
         {            
+            _logger.LogWarning($"Login {usuario.Email}");
             var respuesta = await _usuarioDAO.Login(usuario);
             if(respuesta.Mensaje.Equals("Email y/o contraseña invalidos") || respuesta.Mensaje.Equals("El email debe estar confirmado")) return BadRequest(respuesta.Mensaje);
 
@@ -127,6 +137,7 @@ namespace WebApi.Controllers
         [HttpPost("RefreshToken")]
         public async Task<IActionResult> RefreshToken([FromBody] TokenRequestDTO tokenRequest)
         {
+            _logger.LogWarning($"Refresh token: {tokenRequest}");
             if (!ModelState.IsValid) return BadRequest(new AuthResult
             {
                 Mensaje = "Invalid parameters",
@@ -166,8 +177,9 @@ namespace WebApi.Controllers
 
                 return Ok("Thank you for confirm your email.");
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                _logger.LogError(e, "Error al intentar confirmar la cuenta");
                 return BadRequest("There has been an error confirming your email");
             }           
         }
@@ -187,12 +199,14 @@ namespace WebApi.Controllers
             }
             catch (Exception)
             {
+                _logger.LogError("Error al intentar mostrar el perfil de usuario");
                 return BadRequest("Error al intentar buscar datos de usuario");
             }
         }
 
         private async Task SendVerificationEmailAsync(Usuario usuario)
         {
+            _logger.LogWarning("Enviando email de verificacion");
             var verificationCode = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
             verificationCode = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(verificationCode));
 
@@ -208,6 +222,7 @@ namespace WebApi.Controllers
 
         private async Task SendConfirmUpdateEmailAsync(Usuario usuario)
         {
+            _logger.LogWarning("Enviando email de confirmacion");
             var codigoDeConfirmacion = RandomGenerator.GenerateRandomString(5);
 
             usuario.ConfirmUpdateCode = codigoDeConfirmacion;
@@ -262,6 +277,7 @@ namespace WebApi.Controllers
             }
             catch (Exception e)
             {
+                _logger.LogError(e, "Error al intentar generar un nuevo token");
                 var message = e.Message == "Invalid token" || e.Message == "Expired token" ? e.Message : "Internal Server Error";
                 return new AuthResult
                 {
