@@ -140,7 +140,7 @@ namespace AccesoDatos.Operaciones
             }
         }
 
-        public async Task<IEnumerable<CuentasBancaria>> ObtenerCuentas(int idUsuario)
+        public async Task<IEnumerable<CuentasBancaria>> ObtenerCuentas(int? idUsuario)
         {
             var cuentas = await _appCarrosContext.CuentasBancarias.Where(cb => cb.UsuarioId == idUsuario).ToListAsync();
             if (cuentas.Count == 0) return null;

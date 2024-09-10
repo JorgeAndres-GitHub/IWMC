@@ -22,6 +22,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> InsertarCuentaDeBanco([FromBody] BancoRequestDTO bancoRequestDTO)
         {
             var usuarioId = User.Claims.FirstOrDefault(c => c.Type == "Id")?.Value;
+            if (usuarioId == null) return NotFound("Id de usuario no encontrado");
             var respuesta = await _cuentasBancariasDAO?.PonerCuentaBancaria(bancoRequestDTO, usuarioId!)!;
             if(!respuesta.Respuesta) return BadRequest(respuesta.Mensaje);
             return CreatedAtAction("InsertarCuentaDeBanco", usuarioId, respuesta);
@@ -31,6 +32,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> AgregarDinero([FromBody] DineroRequestDTO request)
         {
             int usuarioId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "Id")!.Value);
+            if (usuarioId == null) return NotFound("Id de usuario no encontrado");
             var response = await _cuentasBancariasDAO.AgregarDinero(usuarioId, request.NumeroDeCuenta, request.Dinero);
             if(response.Mensaje.Equals("Usuario no encontrado") || response.Mensaje.Equals("Error al agregar dinero a la cuenta")) return BadRequest(response);
             return NoContent();
@@ -39,7 +41,8 @@ namespace WebApi.Controllers
         [HttpGet("Cuentas")]
         public async Task<IActionResult> MostrarCuentas()
         {
-            int usuarioId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "Id")!.Value);
+            int? usuarioId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "Id").Value);
+            if (usuarioId == null) return NotFound("Id de usuario no encontrado");
             var cuentas = await _cuentasBancariasDAO.ObtenerCuentas(usuarioId);
             if (cuentas == null) return NotFound();
             return Ok(cuentas);
