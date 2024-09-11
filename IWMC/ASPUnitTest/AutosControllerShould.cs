@@ -20,7 +20,7 @@ namespace ASPUnitTest
             _appCarrosContext = new AppCarrosContext(options);
             _autoDAO = new AutoDAO(_appCarrosContext);
             _autosController = new AutosController(_appCarrosContext, _autoDAO);
-
+            
             _appCarrosContext.Autos.AddRange(
                 new Auto { Vehiculo = "Mercedes", VersionVehiculo= "AMG E53 4MATIC+", Precio= 402900000.0000m, Tipo = "Carro" },
                 new Auto { Vehiculo = "Toyota", VersionVehiculo= "2016 C190", Precio= 850550000.0000m, Tipo = "carro" }

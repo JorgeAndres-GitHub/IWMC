@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\webapi\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{18144161-6589-4097-AB49-0DE3C77602C2}|ASPUnitTest\\ASPUnitTest.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\aspunittest\\autoscontrollershould.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18144161-6589-4097-AB49-0DE3C77602C2}|ASPUnitTest\\ASPUnitTest.csproj|solutionrelative:aspunittest\\autoscontrollershould.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\accesodatos\\operaciones\\cuentasbancariasdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\operaciones\\cuentasbancariasdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|solutionrelative:webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\accesodatos\\operaciones\\autocompradodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\operaciones\\autocompradodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\webapi\\controllers\\autoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,40 +35,16 @@
       "RelativeMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\dtos\\autorequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\accesodatos\\models\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\models\\auto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\accesodatos\\operaciones\\autodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\operaciones\\autodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\accesodatos\\operaciones\\autocompradodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\operaciones\\autocompradodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\accesodatos\\context\\appcarroscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\context\\appcarroscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\webapi\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\accesodatos\\operaciones\\usuariodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\operaciones\\usuariodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\webapi\\controllers\\bancoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\bancoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\accesodatos\\operaciones\\cuentasbancariasdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\operaciones\\cuentasbancariasdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\accesodatos\\operaciones\\usuariodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA433FFC-9B1D-4EA6-968B-D86250A718A6}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\operaciones\\usuariodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{14C1501D-0FB5-41F0-B71B-C1D7990B76F6}|WebApi\\WebApi.csproj|c:\\users\\thermaltake\\desktop\\appcarros\\iwmc\\webapi\\controllers\\autoscompradoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -73,7 +65,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
@@ -105,85 +97,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AutoRequestDTO.cs",
-              "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\DTOs\\AutoRequestDTO.cs",
-              "RelativeDocumentMoniker": "AccesoDatos\\DTOs\\AutoRequestDTO.cs",
-              "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\DTOs\\AutoRequestDTO.cs",
-              "RelativeToolTip": "AccesoDatos\\DTOs\\AutoRequestDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T01:14:38.641Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Auto.cs",
-              "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Models\\Auto.cs",
-              "RelativeDocumentMoniker": "AccesoDatos\\Models\\Auto.cs",
-              "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Models\\Auto.cs",
-              "RelativeToolTip": "AccesoDatos\\Models\\Auto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T00:38:34.224Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "AutosController.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Controllers\\AutosController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\AutosController.cs",
               "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Controllers\\AutosController.cs",
               "RelativeToolTip": "WebApi\\Controllers\\AutosController.cs",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAAAC0AAABXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-08T17:02:21.53Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-08T17:02:21.53Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "AutoCompradoDAO.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Operaciones\\AutoCompradoDAO.cs",
               "RelativeDocumentMoniker": "AccesoDatos\\Operaciones\\AutoCompradoDAO.cs",
-              "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Operaciones\\AutoCompradoDAO.cs",
-              "RelativeToolTip": "AccesoDatos\\Operaciones\\AutoCompradoDAO.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAFIAAAAIAAAA",
+              "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Operaciones\\AutoCompradoDAO.cs*",
+              "RelativeToolTip": "AccesoDatos\\Operaciones\\AutoCompradoDAO.cs*",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-31T17:45:03.446Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AutoDAO.cs",
-              "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Operaciones\\AutoDAO.cs",
-              "RelativeDocumentMoniker": "AccesoDatos\\Operaciones\\AutoDAO.cs",
-              "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Operaciones\\AutoDAO.cs",
-              "RelativeToolTip": "AccesoDatos\\Operaciones\\AutoDAO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-08T17:03:09.449Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AutosControllerShould.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\ASPUnitTest\\AutosControllerShould.cs",
               "RelativeDocumentMoniker": "ASPUnitTest\\AutosControllerShould.cs",
               "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\ASPUnitTest\\AutosControllerShould.cs",
               "RelativeToolTip": "ASPUnitTest\\AutosControllerShould.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEwAAAAUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-08T16:25:06.097Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\appsettings.json",
               "RelativeDocumentMoniker": "WebApi\\appsettings.json",
@@ -196,46 +148,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "BancosController.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Controllers\\BancosController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\BancosController.cs",
               "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Controllers\\BancosController.cs",
               "RelativeToolTip": "WebApi\\Controllers\\BancosController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAABBwDAAAAAJAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAADAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-31T17:53:45.062Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-31T17:53:45.062Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CuentasBancariasDAO.cs",
-              "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Operaciones\\CuentasBancariasDAO.cs",
-              "RelativeDocumentMoniker": "AccesoDatos\\Operaciones\\CuentasBancariasDAO.cs",
-              "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Operaciones\\CuentasBancariasDAO.cs",
-              "RelativeToolTip": "AccesoDatos\\Operaciones\\CuentasBancariasDAO.cs",
-              "ViewState": "AQIAAH0AAAAAAAAAAABBwI4AAABLAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-31T17:54:53.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AutosCompradosController.cs",
-              "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Controllers\\AutosCompradosController.cs",
-              "RelativeDocumentMoniker": "WebApi\\Controllers\\AutosCompradosController.cs",
-              "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Controllers\\AutosCompradosController.cs",
-              "RelativeToolTip": "WebApi\\Controllers\\AutosCompradosController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-31T17:44:45.366Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "AppCarrosContext.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Context\\AppCarrosContext.cs",
               "RelativeDocumentMoniker": "AccesoDatos\\Context\\AppCarrosContext.cs",
@@ -243,38 +168,74 @@
               "RelativeToolTip": "AccesoDatos\\Context\\AppCarrosContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAABVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T17:08:50.141Z",
+              "WhenOpened": "2024-08-19T17:08:50.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CuentasBancariasDAO.cs",
+              "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Operaciones\\CuentasBancariasDAO.cs",
+              "RelativeDocumentMoniker": "AccesoDatos\\Operaciones\\CuentasBancariasDAO.cs",
+              "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Operaciones\\CuentasBancariasDAO.cs",
+              "RelativeToolTip": "AccesoDatos\\Operaciones\\CuentasBancariasDAO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-31T17:54:53.527Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Program.cs",
               "RelativeDocumentMoniker": "WebApi\\Program.cs",
               "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Program.cs",
               "RelativeToolTip": "WebApi\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAABBwA8AAAAaAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-19T17:18:06.646Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "UsuariosController.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Controllers\\UsuariosController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\UsuariosController.cs",
               "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Controllers\\UsuariosController.cs",
               "RelativeToolTip": "WebApi\\Controllers\\UsuariosController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAABBwCIAAAAAAAAA",
+              "ViewState": "AQIAAO4AAAAAAAAAAAAAAAoBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-31T17:59:03.731Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
+              "Title": "AutoRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\DTOs\\AutoRequestDTO.cs",
+              "RelativeDocumentMoniker": "AccesoDatos\\DTOs\\AutoRequestDTO.cs",
+              "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\DTOs\\AutoRequestDTO.cs",
+              "RelativeToolTip": "AccesoDatos\\DTOs\\AutoRequestDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T01:14:38.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AutosCompradosController.cs",
+              "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Controllers\\AutosCompradosController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\AutosCompradosController.cs",
+              "ToolTip": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\WebApi\\Controllers\\AutosCompradosController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\AutosCompradosController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-31T17:44:45.366Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "UsuarioDAO.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\Operaciones\\UsuarioDAO.cs",
               "RelativeDocumentMoniker": "AccesoDatos\\Operaciones\\UsuarioDAO.cs",
@@ -282,12 +243,11 @@
               "RelativeToolTip": "AccesoDatos\\Operaciones\\UsuarioDAO.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAABBwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-31T18:00:56.478Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-31T18:00:56.478Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "secrets.json",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\AppData\\Roaming\\Microsoft\\UserSecrets\\7b0315f4-32e1-4aee-8e0c-521edfdd2309\\secrets.json",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\7b0315f4-32e1-4aee-8e0c-521edfdd2309\\secrets.json",
@@ -295,12 +255,11 @@
               "RelativeToolTip": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\7b0315f4-32e1-4aee-8e0c-521edfdd2309\\secrets.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-24T08:31:12.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-24T08:31:12.704Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 13,
               "Title": "TokenRequestDTO.cs",
               "DocumentMoniker": "C:\\Users\\THERMALTAKE\\Desktop\\AppCarros\\IWMC\\AccesoDatos\\DTOs\\TokenRequestDTO.cs",
               "RelativeDocumentMoniker": "AccesoDatos\\DTOs\\TokenRequestDTO.cs",
@@ -308,8 +267,7 @@
               "RelativeToolTip": "AccesoDatos\\DTOs\\TokenRequestDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T17:29:13.198Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T17:29:13.198Z"
             }
           ]
         }

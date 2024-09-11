@@ -59,6 +59,8 @@ try
     });
     });
 
+    builder.Services.AddCors(policyBuilder=> policyBuilder.AddDefaultPolicy(policy=> policy.WithOrigins("*").AllowAnyHeader().AllowAnyMethod()));
+
 
     builder.Services.AddDbContext<AppCarrosContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("CadenaSql")));
@@ -117,6 +119,8 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+
+    app.UseCors();
 
     app.UseHttpsRedirection();
 
